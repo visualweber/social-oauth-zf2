@@ -11,7 +11,7 @@ Installation with Composer
 1. Add this project in your `composer.json`:
 ```json
     "require": {
-        "visualweber/socialoauthzf2": "dev-master",
+        "visualweber/social-oauth-zf2": "dev-master",
     }
 ```
 

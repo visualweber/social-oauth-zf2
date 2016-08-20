@@ -1,5 +1,5 @@
 {
-    "name": "misarji/zend-oauth2",
+    "name": "misarji/social-oauth-zf2",
     "description": "Great OAuth2 client for ZF2. It provides clients for github, google, facebook and linkedin, others are coming soon.",
     "minimum-stability": "dev",
     "type" : "module",
