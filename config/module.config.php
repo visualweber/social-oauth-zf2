@@ -17,12 +17,12 @@ return array(
         ),
         
         'invokables' => array(
-            'SocialOAuth\Auth\Adapter' => 'SocialOAuth\Authentication\Adapter\ZendOAuth2',  
+            'SocialOAuth\Auth\Adapter' => 'SocialOAuth\Authentication\Adapter\SocialOAuth',  
         ),
         
     ),
     
-    'zendoauth2' => array(
+    'socialoauth' => array(
         
         'google' => array(
             'scope' => array(

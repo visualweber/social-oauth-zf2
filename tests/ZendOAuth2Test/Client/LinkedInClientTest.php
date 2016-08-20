@@ -1,8 +1,8 @@
 <?php
 
-namespace ZendOAuth2Test\Client;
+namespace SocialOAuthTest\Client;
 
-use ZendOAuth2Test\Bootstrap;
+use SocialOAuthTest\Bootstrap;
 use PHPUnit_Framework_TestCase;
 
 class LinkedInClientTest extends PHPUnit_Framework_TestCase
@@ -28,7 +28,7 @@ class LinkedInClientTest extends PHPUnit_Framework_TestCase
     {
         $me = new \SocialOAuth\Client\LinkedIn;
         $cf = Bootstrap::getServiceManager()->get('Config');
-        $me->setOptions(new \SocialOAuth\ClientOptions($cf['zendoauth2']['linkedin']));
+        $me->setOptions(new \SocialOAuth\ClientOptions($cf['socialoauth']['linkedin']));
         return $me;
     }
     

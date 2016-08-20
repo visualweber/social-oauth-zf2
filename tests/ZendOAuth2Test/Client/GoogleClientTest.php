@@ -1,8 +1,8 @@
 <?php
 
-namespace ZendOAuth2Test\Client;
+namespace SocialOAuthTest\Client;
 
-use ZendOAuth2Test\Bootstrap;
+use SocialOAuthTest\Bootstrap;
 use PHPUnit_Framework_TestCase;
 
 class GoogleClientTest extends PHPUnit_Framework_TestCase
@@ -28,7 +28,7 @@ class GoogleClientTest extends PHPUnit_Framework_TestCase
     {
         $me = new \SocialOAuth\Client\Google;
         $cf = Bootstrap::getServiceManager()->get('Config');
-        $me->setOptions(new \SocialOAuth\ClientOptions($cf['zendoauth2']['google']));
+        $me->setOptions(new \SocialOAuth\ClientOptions($cf['socialoauth']['google']));
         return $me;
     }
     

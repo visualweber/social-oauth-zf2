@@ -16,7 +16,7 @@ class FacebookFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator) {
         $me = new \SocialOAuth\Client\Facebook;
         $cf = $serviceLocator->get('Config');
-        $me->setOptions(new \SocialOAuth\ClientOptions($cf['zendoauth2']['facebook']));
+        $me->setOptions(new \SocialOAuth\ClientOptions($cf['socialoauth']['facebook']));
         return $me;
     }
 }

@@ -16,7 +16,7 @@ class GithubFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator) {
         $me = new \SocialOAuth\Client\Github;
         $cf = $serviceLocator->get('Config');
-        $me->setOptions(new \SocialOAuth\ClientOptions($cf['zendoauth2']['github']));
+        $me->setOptions(new \SocialOAuth\ClientOptions($cf['socialoauth']['github']));
         return $me;
     }
 }

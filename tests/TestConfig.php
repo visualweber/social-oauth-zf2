@@ -3,6 +3,6 @@
 
 return array(
     'modules' => array(
-        'ZendOAuth2',
+        'SocialOAuth',
     ),
 );

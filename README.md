@@ -1,4 +1,4 @@
-ZendOAuth2
+SocialOAuth
 ===========
 
 Great OAuth2 client for ZF2. It provides clients for github, google, facebook and linkedin, others are coming soon. 
@@ -25,7 +25,7 @@ $ php composer.phar update
 return array(
 	'modules' => array(
 		// ...
-		'ZendOAuth2',
+		'SocialOAuth',
 	),
 	// ...
 );
@@ -34,9 +34,9 @@ return array(
 Usage
 -----
 
-As usual add it to your application.config.php 'ZendOAuth2'.
+As usual add it to your application.config.php 'SocialOAuth'.
 
-Copy & rename the `config/zendoauth2.local.php.dist` to your autoload folder and fill the information needed. 
+Copy & rename the `config/socialoauth.local.php.dist` to your autoload folder and fill the information needed. 
 
 ### In your controller/action do:
 ```php
@@ -95,7 +95,7 @@ public function callbackAction()
 }
 ```
 
-### The ZendOAuth2 authentication adapter
+### The SocialOAuth authentication adapter
 
 The module provides also an zend\authentication\adapter.
 

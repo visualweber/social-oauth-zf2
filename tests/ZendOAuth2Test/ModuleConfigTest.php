@@ -1,8 +1,8 @@
 <?php
 
-use ZendOAuth2Test\Bootstrap;
+use SocialOAuthTest\Bootstrap;
 
-namespace ZendOAuth2Test;
+namespace SocialOAuthTest;
 
 use PHPUnit_Framework_TestCase;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace ZendOAuth2;
+namespace SocialOAuth;
 
 use Zend\Http\PhpEnvironment\Request;
 use Zend\Session\Container;
@@ -33,7 +33,7 @@ abstract class AbstractOAuth2Client
     
     public function __construct()
     {
-        $this->session = new Container('ZendOAuth2_'.get_class($this));
+        $this->session = new Container('SocialOAuth_'.get_class($this));
     }
     
     public function getInfo()

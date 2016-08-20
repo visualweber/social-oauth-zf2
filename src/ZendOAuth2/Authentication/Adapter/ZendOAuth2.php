@@ -9,7 +9,7 @@ use Zend\Authentication\Result;
 use Zend\Authentication\Adapter\AdapterInterface;
 use SocialOAuth\AbstractOAuth2Client;
 
-class ZendOAuth2 implements AdapterInterface, EventManagerAwareInterface
+class SocialOAuth implements AdapterInterface, EventManagerAwareInterface
 {
     
     protected $client;

@@ -16,7 +16,7 @@ class GoogleFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator) {
         $me = new \SocialOAuth\Client\Google;
         $cf = $serviceLocator->get('Config');
-        $me->setOptions(new \SocialOAuth\ClientOptions($cf['zendoauth2']['google']));
+        $me->setOptions(new \SocialOAuth\ClientOptions($cf['socialoauth']['google']));
         return $me;
     }
 }

@@ -3,7 +3,7 @@
     "description": "Great OAuth2 client for ZF2. It provides clients for github, google, facebook and linkedin, others are coming soon.",
     "minimum-stability": "dev",
     "type" : "module",
-    "homepage" : "https://github.com/misarji/ZendOAuth2",
+    "homepage" : "https://github.com/misarji/SocialOAuth",
     "keywords" : ["oauth2", "zf2", "module"],
     "license" : "MIT",
     "authors": [
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-0": {
-            "ZendOAuth2": "src/"
+            "SocialOAuth": "src/"
         },
         "classmap": [
             "./Module.php"

@@ -16,7 +16,7 @@ class LinkedInFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator) {
         $me = new \SocialOAuth\Client\LinkedIn;
         $cf = $serviceLocator->get('Config');
-        $me->setOptions(new \SocialOAuth\ClientOptions($cf['zendoauth2']['linkedin']));
+        $me->setOptions(new \SocialOAuth\ClientOptions($cf['socialoauth']['linkedin']));
         return $me;
     }
 }

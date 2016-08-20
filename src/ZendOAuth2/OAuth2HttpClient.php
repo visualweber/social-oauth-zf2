@@ -1,6 +1,6 @@
 <?php
 
-namespace ZendOAuth2;
+namespace SocialOAuth;
 
 use \Zend\Http\Client;
 

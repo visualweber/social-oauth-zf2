@@ -1,6 +1,6 @@
 <?php
 
-namespace ZendOAuth2Test;
+namespace SocialOAuthTest;
 
 use Zend\Loader\AutoloaderFactory;
 use Zend\Mvc\Service\ServiceManagerConfig;
