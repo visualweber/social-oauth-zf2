@@ -1,6 +1,6 @@
 <?php
 
-namespace ZendOAuth2\Exception;
+namespace SocialOAuth\Exception;
 
 class HttpClientException extends \InvalidArgumentException
 {

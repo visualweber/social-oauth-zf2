@@ -1,8 +1,8 @@
 <?php
 
-namespace ZendOAuth2\Client;
+namespace SocialOAuth\Client;
 
-use ZendOAuth2\AbstractOAuth2Client;
+use SocialOAuth\AbstractOAuth2Client;
 use Zend\Http\PhpEnvironment\Request;
 
 class LinkedIn extends AbstractOAuth2Client

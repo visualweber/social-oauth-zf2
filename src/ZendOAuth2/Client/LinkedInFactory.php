@@ -1,5 +1,5 @@
 <?php
-namespace ZendOAuth2\Client;
+namespace SocialOAuth\Client;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -14,9 +14,9 @@ class LinkedInFactory implements FactoryInterface
      * @return mixed
      */
     public function createService(ServiceLocatorInterface $serviceLocator) {
-        $me = new \ZendOAuth2\Client\LinkedIn;
+        $me = new \SocialOAuth\Client\LinkedIn;
         $cf = $serviceLocator->get('Config');
-        $me->setOptions(new \ZendOAuth2\ClientOptions($cf['zendoauth2']['linkedin']));
+        $me->setOptions(new \SocialOAuth\ClientOptions($cf['zendoauth2']['linkedin']));
         return $me;
     }
 }

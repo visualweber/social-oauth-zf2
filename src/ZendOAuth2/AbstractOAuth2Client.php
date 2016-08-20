@@ -4,8 +4,8 @@ namespace ZendOAuth2;
 
 use Zend\Http\PhpEnvironment\Request;
 use Zend\Session\Container;
-use ZendOAuth2\ClientOptions;
-use ZendOAuth2\OAuht2HttpClient;
+use SocialOAuth\ClientOptions;
+use SocialOAuth\OAuht2HttpClient;
 
 abstract class AbstractOAuth2Client
 {

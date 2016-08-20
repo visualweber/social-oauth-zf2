@@ -1,5 +1,5 @@
 <?php
-namespace ZendOAuth2\Client;
+namespace SocialOAuth\Client;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -14,9 +14,9 @@ class GithubFactory implements FactoryInterface
      * @return mixed
      */
     public function createService(ServiceLocatorInterface $serviceLocator) {
-        $me = new \ZendOAuth2\Client\Github;
+        $me = new \SocialOAuth\Client\Github;
         $cf = $serviceLocator->get('Config');
-        $me->setOptions(new \ZendOAuth2\ClientOptions($cf['zendoauth2']['github']));
+        $me->setOptions(new \SocialOAuth\ClientOptions($cf['zendoauth2']['github']));
         return $me;
     }
 }

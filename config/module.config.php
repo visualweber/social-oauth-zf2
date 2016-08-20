@@ -6,18 +6,18 @@ return array(
         
         'factories' => array(
             
-            'ZendOAuth2\Google' => 'ZendOAuth2\Client\GoogleFactory',
+            'SocialOAuth\Google' => 'SocialOAuth\Client\GoogleFactory',
             
-            'ZendOAuth2\LinkedIn' => 'ZendOAuth2\Client\LinkedInFactory',
+            'SocialOAuth\LinkedIn' => 'SocialOAuth\Client\LinkedInFactory',
 
-            'ZendOAuth2\Github' => 'ZendOAuth2\Client\GithubFactory',
+            'SocialOAuth\Github' => 'SocialOAuth\Client\GithubFactory',
             
-            'ZendOAuth2\Facebook' => 'ZendOAuth2\Client\FacebookFactory'
+            'SocialOAuth\Facebook' => 'SocialOAuth\Client\FacebookFactory'
             
         ),
         
         'invokables' => array(
-            'ZendOAuth2\Auth\Adapter' => 'ZendOAuth2\Authentication\Adapter\ZendOAuth2',  
+            'SocialOAuth\Auth\Adapter' => 'SocialOAuth\Authentication\Adapter\ZendOAuth2',  
         ),
         
     ),

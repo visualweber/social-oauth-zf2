@@ -1,13 +1,13 @@
 <?php
 
-namespace ZendOAuth2\Authentication\Adapter;
+namespace SocialOAuth\Authentication\Adapter;
 
 use Zend\EventManager\EventManagerAwareInterface;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\EventManager;
 use Zend\Authentication\Result;
 use Zend\Authentication\Adapter\AdapterInterface;
-use ZendOAuth2\AbstractOAuth2Client;
+use SocialOAuth\AbstractOAuth2Client;
 
 class ZendOAuth2 implements AdapterInterface, EventManagerAwareInterface
 {

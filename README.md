@@ -43,10 +43,10 @@ Copy & rename the `config/zendoauth2.local.php.dist` to your autoload folder and
 public function callbackAction()
 {
 
-    $me = $this->getServiceLocator()->get('ZendOAuth2\Google');
-    //$me = $this->getServiceLocator()->get('ZendOAuth2\Github');
-    //$me = $this->getServiceLocator()->get('ZendOAuth2\Facebook');
-    //$me = $this->getServiceLocator()->get('ZendOAuth2\LinkedIn');
+    $me = $this->getServiceLocator()->get('SocialOAuth\Google');
+    //$me = $this->getServiceLocator()->get('SocialOAuth\Github');
+    //$me = $this->getServiceLocator()->get('SocialOAuth\Facebook');
+    //$me = $this->getServiceLocator()->get('SocialOAuth\LinkedIn');
 
     if (strlen($this->params()->fromQuery('code')) > 10) {
     	
@@ -79,10 +79,10 @@ Beside the configuration options in `module.config.php` and `reverseoath2.local.
 public function callbackAction()
 {
 
-    $me = $this->getServiceLocator()->get('ZendOAuth2\Google');
-    //$me = $this->getServiceLocator()->get('ZendOAuth2\Github');
-    //$me = $this->getServiceLocator()->get('ZendOAuth2\Facebook');
-    //$me = $this->getServiceLocator()->get('ZendOAuth2\LinkedIn');
+    $me = $this->getServiceLocator()->get('SocialOAuth\Google');
+    //$me = $this->getServiceLocator()->get('SocialOAuth\Github');
+    //$me = $this->getServiceLocator()->get('SocialOAuth\Facebook');
+    //$me = $this->getServiceLocator()->get('SocialOAuth\LinkedIn');
 
 	$me->getOptions()->setScope(array('email', 'user'));
 	$me->getOptions()->setAuthUri('http://google.com/');
@@ -103,7 +103,7 @@ The module provides also an zend\authentication\adapter.
 public function authGithubAction() // controller action
 {
 
-    $me = $this->getServiceLocator()->get('ZendOAuth2\Github');
+    $me = $this->getServiceLocator()->get('SocialOAuth\Github');
 
     $auth = new AuthenticationService(); // zend
     
@@ -115,7 +115,7 @@ public function authGithubAction() // controller action
             $token = $me->getError(); // last returned error (array)
         }
         
-        $adapter = $this->getServiceLocator()->get('ZendOAuth2\Auth\Adapter'); // added in module.config.php
+        $adapter = $this->getServiceLocator()->get('SocialOAuth\Auth\Adapter'); // added in module.config.php
         $adapter->setOAuth2Client($me); // $me is the oauth2 client
         $rs = $auth->authenticate($adapter); // provides an eventManager 'oauth2.success'
         
@@ -149,7 +149,7 @@ public function onBootstrap(Event $e)
 {
     /* Some bad code here, only for demo purposes. */
     $userTable = new UserTable($e->getApplication()->getServiceManager()->get('Zend\Db\Adapter\Adapter')); // my user table
-    $e->getApplication()->getServiceManager()->get('ZendOAuth2\Auth\Adapter')->getEventManager() // the the adapters eventmanager
+    $e->getApplication()->getServiceManager()->get('SocialOAuth\Auth\Adapter')->getEventManager() // the the adapters eventmanager
         ->attach('oauth2.success', //attach to the event
             function($e) use ($userTable){
                 

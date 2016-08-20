@@ -26,19 +26,19 @@ class GoogleClientTest extends PHPUnit_Framework_TestCase
     
     public function getClient()
     {
-        $me = new \ZendOAuth2\Client\Google;
+        $me = new \SocialOAuth\Client\Google;
         $cf = Bootstrap::getServiceManager()->get('Config');
-        $me->setOptions(new \ZendOAuth2\ClientOptions($cf['zendoauth2']['google']));
+        $me->setOptions(new \SocialOAuth\ClientOptions($cf['zendoauth2']['google']));
         return $me;
     }
     
     public function testInstanceTypes()
     {
-        $this->assertInstanceOf('ZendOAuth2\AbstractOAuth2Client', $this->client);
-        $this->assertInstanceOf('ZendOAuth2\Client\\'.$this->providerName, $this->client);
-        $this->assertInstanceOf('ZendOAuth2\ClientOptions', $this->client->getOptions());
+        $this->assertInstanceOf('SocialOAuth\AbstractOAuth2Client', $this->client);
+        $this->assertInstanceOf('SocialOAuth\Client\\'.$this->providerName, $this->client);
+        $this->assertInstanceOf('SocialOAuth\ClientOptions', $this->client->getOptions());
         $this->assertInstanceOf('Zend\Session\Container', $this->client->getSessionContainer());
-        $this->assertInstanceOf('ZendOAuth2\OAuth2HttpClient', $this->client->getHttpClient());
+        $this->assertInstanceOf('SocialOAuth\OAuth2HttpClient', $this->client->getHttpClient());
     }
     
     public function testGetProviderName()
@@ -49,7 +49,7 @@ class GoogleClientTest extends PHPUnit_Framework_TestCase
     public function testSetHttpClient()
     {
         $httpClientMock = $this->getMock(
-                '\ZendOAuth2\OAuth2HttpClient',
+                '\SocialOAuth\OAuth2HttpClient',
                 null,
                 array(null, array('timeout' => 30, 'adapter' => '\Zend\Http\Client\Adapter\Curl'))
         );
@@ -59,7 +59,7 @@ class GoogleClientTest extends PHPUnit_Framework_TestCase
     
     public function testFailSetHttpClient()
     {
-        $this->setExpectedException('ZendOAuth2\Exception\HttpClientException');
+        $this->setExpectedException('SocialOAuth\Exception\HttpClientException');
         $this->client->setHttpClient(new \Zend\Http\Client);
     }
     
@@ -125,7 +125,7 @@ class GoogleClientTest extends PHPUnit_Framework_TestCase
         $this->client->getUrl();
         
         $httpClientMock = $this->getMock(
-            '\ZendOAuth2\OAuth2HttpClient',
+            '\SocialOAuth\OAuth2HttpClient',
             array('send'),
             array(null, array('timeout' => 30, 'adapter' => '\Zend\Http\Client\Adapter\Curl'))
         );
@@ -152,7 +152,7 @@ class GoogleClientTest extends PHPUnit_Framework_TestCase
         $this->client->getUrl();
     
         $httpClientMock = $this->getMock(
-                '\ZendOAuth2\OAuth2HttpClient',
+                '\SocialOAuth\OAuth2HttpClient',
                 array('send'),
                 array(null, array('timeout' => 30, 'adapter' => '\Zend\Http\Client\Adapter\Curl'))
         );
@@ -179,7 +179,7 @@ class GoogleClientTest extends PHPUnit_Framework_TestCase
         $this->client->getUrl();
         
         $httpClientMock = $this->getMock(
-            '\ZendOAuth2\OAuth2HttpClient',
+            '\SocialOAuth\OAuth2HttpClient',
             array('send'),
             array(null, array('timeout' => 30, 'adapter' => '\Zend\Http\Client\Adapter\Curl'))
         );
@@ -206,7 +206,7 @@ class GoogleClientTest extends PHPUnit_Framework_TestCase
     {
 
         $httpClientMock = $this->getMock(
-            '\ZendOAuth2\OAuth2HttpClient',
+            '\SocialOAuth\OAuth2HttpClient',
             array('send'),
             array(null, array('timeout' => 30, 'adapter' => '\Zend\Http\Client\Adapter\Curl'))
         );
@@ -233,7 +233,7 @@ class GoogleClientTest extends PHPUnit_Framework_TestCase
     {
     
         $httpClientMock = $this->getMock(
-                '\ZendOAuth2\OAuth2HttpClient',
+                '\SocialOAuth\OAuth2HttpClient',
                 array('send'),
                 array(null, array('timeout' => 30, 'adapter' => '\Zend\Http\Client\Adapter\Curl'))
         );
@@ -259,7 +259,7 @@ class GoogleClientTest extends PHPUnit_Framework_TestCase
     {
     
         $httpClientMock = $this->getMock(
-                '\ZendOAuth2\OAuth2HttpClient',
+                '\SocialOAuth\OAuth2HttpClient',
                 array('send'),
                 array(null, array('timeout' => 30, 'adapter' => '\Zend\Http\Client\Adapter\Curl'))
         );

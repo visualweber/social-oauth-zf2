@@ -1,9 +1,9 @@
 <?php
 
-namespace ZendOAuth2\Client;
+namespace SocialOAuth\Client;
 
-use ZendOAuth2\AbstractOAuth2Client;
-use ZendOAuth2\ClientOptions;
+use SocialOAuth\AbstractOAuth2Client;
+use SocialOAuth\ClientOptions;
 use Zend\Http\PhpEnvironment\Request;
 
 class Google extends AbstractOAuth2Client

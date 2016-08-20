@@ -12,10 +12,10 @@ class ModuleConfigTest extends PHPUnit_Framework_TestCase
     public function testModuleConfig()
     {
         
-        $githubClient = Bootstrap::getServiceManager()->get('ZendOAuth2\Github');   
-        $facebookClient = Bootstrap::getServiceManager()->get('ZendOAuth2\Facebook');   
-        $googleClient = Bootstrap::getServiceManager()->get('ZendOAuth2\Google');   
-        $linkedInClient = Bootstrap::getServiceManager()->get('ZendOAuth2\LinkedIn');
+        $githubClient = Bootstrap::getServiceManager()->get('SocialOAuth\Github');   
+        $facebookClient = Bootstrap::getServiceManager()->get('SocialOAuth\Facebook');   
+        $googleClient = Bootstrap::getServiceManager()->get('SocialOAuth\Google');   
+        $linkedInClient = Bootstrap::getServiceManager()->get('SocialOAuth\LinkedIn');
 
         $this->assertSame('github', $githubClient->getProvider());
         $this->assertSame('facebook', $facebookClient->getProvider());
