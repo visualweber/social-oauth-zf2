@@ -1,20 +1,20 @@
 {
-    "name": "misarji/social-oauth-zf2",
+    "name": "visualweber/social-oauth-zf2",
     "description": "Great OAuth2 client for ZF2. It provides clients for github, google, facebook and linkedin, others are coming soon.",
     "minimum-stability": "dev",
     "type" : "module",
-    "homepage" : "https://github.com/misarji/SocialOAuth",
+    "homepage" : "https://github.com/visualweber/social-oauth-zf2",
     "keywords" : ["oauth2", "zf2", "module"],
     "license" : "MIT",
     "authors": [
         {
-            "name": "Keshav Mishra",
-            "email": "keshav.kr.mishra@gmail.com",
-            "homepage": "http://www.keshavmishra.com"
+            "name": "Visual Weber",
+            "email": "contact@visualweber.com",
+            "homepage": "http://www.visualweber.com"
         }
     ],
     "require": {
-		"php": ">=5.3.3",
+        "php": ">=5.3.3",
         "zendframework/zendframework": "2.*"
     },
     "autoload": {
