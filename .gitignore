@@ -1,0 +1,56 @@
+desktop.ini
+*.log
+*.lock
+*.zip
+*.rar
+*.php~
+.svn
+.ansible
+.DS_Store
+nbproject/
+
+bin/phpunit
+bin/doctrine
+bin/doctrine-dbal
+bin/doctrine-dbal.bat
+bin/doctrine.bat
+bin/classmap_generator.php
+bin/doctrine-module
+bin/doctrine-module.bat
+bin/pluginmap_generator.php
+bin/templatemap_generator.php
+		
+vendor/
+web/uploads/
+data/
+!library/AppEntity/
+
+# IDE files
+.project
+.settings
+
+# Configuration and Data
+# config/autoload/*
+# !config/autoload/global.php
+data/cache/*
+data/tmp/*
+data/translation/*
+data/sessions/*
+
+# Test
+tests/TestConfiguration.php
+tests/phpunit.xml
+tests/library/Gc/Core/_files/*
+!tests/logs
+tests/logs/*
+tests/media/*
+!tests/media/files
+tests/media/files/test/*
+!tests/media/github.tags
+!tests/media/templates/
+tests/media/templates/layout/*
+!tests/media/templates/layout/.gitignore
+tests/media/templates/script/*
+!tests/media/templates/script/.gitignore
+tests/media/templates/view/*
+!tests/media/templates/view/.gitignore
