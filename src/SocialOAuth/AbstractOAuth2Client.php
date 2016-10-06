@@ -138,7 +138,11 @@ abstract class AbstractOAuth2Client
     {
         
         if(!$this->httpClient) {
-            $this->httpClient = new OAuth2HttpClient(null, array('timeout' => 30, 'adapter' => '\Zend\Http\Client\Adapter\Curl'));
+            $this->httpClient = new OAuth2HttpClient(null, array(
+                'timeout' => 30, 
+                'sslverifypeer'=>0,
+                'adapter' => '\Zend\Http\Client\Adapter\Curl')
+            );
         }
         
         return $this->httpClient;

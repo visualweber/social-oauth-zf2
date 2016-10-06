@@ -49,7 +49,7 @@ class Google extends AbstractOAuth2Client
                 'grant_type'    => 'authorization_code'
             ));
             
-            $retVal = $client->send()->getContent();
+            $retVal = $client->send()->getBody();
             
             try {
                 

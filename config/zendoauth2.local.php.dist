@@ -1,25 +1,25 @@
 <?php
-return array(
-    'socialoauth' => array(
-        'google' => array(
+return [
+    'socialoauth' => [
+        'google' => [
             'client_id'     => 'your id',
             'client_secret' => 'your secret',
             'redirect_uri'  => 'your callback url which links to your controller',
-        ),
-        'github' => array(
+        ],
+        'github' => [
             'client_id'     => 'your id',
             'client_secret' => 'your secret',
             'redirect_uri'  => 'your callback url which links to your controller',
-        ),
-        'facebook' => array(
+        ],
+        'facebook' => [
             'client_id'     => 'your id',
             'client_secret' => 'your secret',
             'redirect_uri'  => 'your callback url which links to your controller',
-        ),
-        'linkedin' => array(
+        ],
+        'linkedin' => [
             'client_id'     => 'your api key',
             'client_secret' => 'your api secret',
             'redirect_uri'  => 'your callback url which links to your controller',
-        ),
-    )
-);
+        ],
+    ],
+];

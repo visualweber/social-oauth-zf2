@@ -47,7 +47,7 @@ class Github extends AbstractOAuth2Client
                 'state'         => $this->getState()
             ));
             
-            $retVal = $client->send()->getContent();
+            $retVal = $client->send()->getBody();
             
             parse_str($retVal, $token);      
             
