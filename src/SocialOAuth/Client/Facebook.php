@@ -5,60 +5,53 @@ namespace SocialOAuth\Client;
 use \SocialOAuth\AbstractOAuth2Client;
 use \Zend\Http\PhpEnvironment\Request;
 
-class Facebook extends AbstractOAuth2Client
-{
+class Facebook extends AbstractOAuth2Client {
 
     protected $providerName = 'facebook';
-    
-    public function getUrl()
-    {
-        
-        $url = $this->options->getAuthUri().'?'
-            . 'redirect_uri='  . urlencode($this->options->getRedirectUri())
-            . '&client_id='    . $this->options->getClientId()
-            . '&state='        . $this->generateState()
-            . $this->getScope(',');
+
+    public function getUrl() {
+
+        $url = $this->options->getAuthUri() . '?'
+                . 'redirect_uri=' . urlencode($this->options->getRedirectUri())
+                . '&client_id=' . $this->options->getClientId()
+                . '&state=' . $this->generateState()
+                . $this->getScope(',');
 
         return $url;
-        
     }
-    
-    
-    public function getToken(Request $request) 
-    {
-        
-        if(isset($this->session->token)) {
-        
+
+    public function getToken(Request $request) {
+
+        if (isset($this->session->token)) {
+
             return true;
-            
-        } elseif(strlen($this->session->state) > 0 AND $this->session->state == $request->getQuery('state') AND strlen($request->getQuery('code')) > 5) {
-                     
+        } elseif (strlen($this->session->state) > 0 AND $this->session->state == $request->getQuery('state') AND strlen($request->getQuery('code')) > 5) {
+
             $client = $this->getHttpClient();
-            
+
             $client->setUri($this->options->getTokenUri());
-            
+
             $client->setMethod(Request::METHOD_POST);
-            
+
             $client->setParameterPost(array(
-                'code'          => $request->getQuery('code'),
-                'client_id'     => $this->options->getClientId(),
+                'code' => $request->getQuery('code'),
+                'client_id' => $this->options->getClientId(),
                 'client_secret' => $this->options->getClientSecret(),
-                'redirect_uri'  => $this->options->getRedirectUri()
+                'redirect_uri' => $this->options->getRedirectUri()
             ));
-            
+
             $retVal = $client->send()->getBody();
-            
+
             parse_str($retVal, $token);
-            
-            if(is_array($token) AND isset($token['access_token']) AND $token['expires'] > 0) {
-                
-                $this->session->token = (object)$token;
+
+            if (is_array($token) AND isset($token['access_token']) AND $token['expires'] > 0) {
+
+                $this->session->token = (object) $token;
                 return true;
-                
             } else {
-                
+
                 try {
-                    
+
                     $error = \Zend\Json\Decoder::decode($retVal);
                     $this->error = array(
                         'internal-error' => 'Facebook settings error.',
@@ -66,31 +59,62 @@ class Facebook extends AbstractOAuth2Client
                         'type' => $error->error->type,
                         'code' => $error->error->code
                     );
-                    
-                } catch(\Zend\Json\Exception\RuntimeException $e) {
-                    
+                } catch (\Zend\Json\Exception\RuntimeException $e) {
+
                     $this->error = $token;
                     $this->error['internal-error'] = 'Unknown error.';
-                                        
                 }
-                
-                return false;
-                
-            }
 
+                return false;
+            }
         } else {
 
             $this->error = array(
-                'internal-error'=> 'State error, request variables do not match the session variables.',
+                'internal-error' => 'State error, request variables do not match the session variables.',
                 'session-state' => $this->session->state,
                 'request-state' => $request->getQuery('state'),
-                'code'          => $request->getQuery('code')
+                'code' => $request->getQuery('code')
             );
-            
+
             return false;
-            
         }
-        
     }
-    
+
+    public function getInfo() {
+        if (is_object($this->session->info)) {
+
+            return $this->session->info;
+        } elseif (isset($this->session->token->access_token)) {
+            $uri = $this->options->getInfoUri();
+            if (strpos($uri, '?') !== false):
+                $uri.='&';
+            else:
+                $uri.='?';
+            endif;
+            $urlProfile = $uri . 'access_token=' . $this->session->token->access_token;
+            $client = $this->getHttpclient()
+                    ->resetParameters(true)
+                    //->setHeaders(array('Accept-encoding' => ''))
+                    ->setHeaders(array('Accept-encoding' => 'gzip, deflate, identity'))
+                    ->setMethod(Request::METHOD_GET)
+                    ->setUri($urlProfile);
+            $response = $client->send();
+            $retVal = $response->getBody();
+
+            if (strlen(trim($retVal)) > 0) {
+                //\Zend\Debug\Debug::dump($response->getBody());
+                $this->session->info = \Zend\Json\Decoder::decode($retVal);
+                return $this->session->info;
+            } else {
+
+                $this->error = array('internal-error' => 'Get info return value is empty.');
+                return false;
+            }
+        } else {
+
+            $this->error = array('internal-error' => 'Session access token not found.');
+            return false;
+        }
+    }
+
 }

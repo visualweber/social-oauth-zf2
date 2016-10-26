@@ -65,7 +65,7 @@ return [
             'scope' => [],
             'auth_uri'      => 'https://www.linkedin.com/uas/oauth2/authorization',
             'token_uri'     => 'https://www.linkedin.com/uas/oauth2/accessToken',
-            'info_uri'      => 'https://api.linkedin.com/v1/people/~',
+            'info_uri'      => 'https://api.linkedin.com/v1/people/~:(id,num-connections,picture-url,email-address,first-name,last-name,headline,site-standard-profile-request)',
             'client_id'     => 'your api key',
             'client_secret' => 'your api secret',
             'redirect_uri'  => 'your callback url which links to your controller',

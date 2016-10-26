@@ -75,13 +75,12 @@ class LinkedIn extends AbstractOAuth2Client
 
     public function getInfo()
     {
-        if (is_object($this->session->info)) {
-            return $this->session->info;
-        }
+//        if (is_object($this->session->info)) {
+//            return $this->session->info;
+//        }
 
         if (isset($this->session->token->access_token)) {
             $urlProfile = $this->options->getInfoUri();
-
             $client = $this->getHttpclient()
                 ->resetParameters(true)
                 ->setMethod(Request::METHOD_GET)
@@ -90,9 +89,8 @@ class LinkedIn extends AbstractOAuth2Client
                     'oauth2_access_token' =>  $this->session->token->access_token
                 ))
                 ->setUri($urlProfile);
-
+       
             $retVal = $client->send()->getBody();
-
             if (strlen(trim($retVal)) > 0) {
                 $this->session->info = \Zend\Json\Decoder::decode($retVal);
                 return $this->session->info;
