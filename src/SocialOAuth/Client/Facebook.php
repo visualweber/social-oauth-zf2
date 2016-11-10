@@ -82,7 +82,6 @@ class Facebook extends AbstractOAuth2Client {
 
     public function getInfo() {
         if (is_object($this->session->info)) {
-
             return $this->session->info;
         } elseif (isset($this->session->token->access_token)) {
             $uri = $this->options->getInfoUri();
@@ -94,7 +93,7 @@ class Facebook extends AbstractOAuth2Client {
             $urlProfile = $uri . 'access_token=' . $this->session->token->access_token;
             $client = $this->getHttpclient()
                     ->resetParameters(true)
-                    //->setHeaders(array('Accept-encoding' => ''))
+                    // ->setHeaders(array('Accept-encoding' => ''))
                     ->setHeaders(array('Accept-encoding' => 'gzip, deflate, identity'))
                     ->setMethod(Request::METHOD_GET)
                     ->setUri($urlProfile);
