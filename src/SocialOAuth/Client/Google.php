@@ -110,7 +110,7 @@ class Google extends AbstractOAuth2Client {
             $this->error = array('internal-error' => 'Session access token not found.');
             return false;
         }
-        $this->getContacts();
+        // $this->getContacts();
         return $me;
     }
 
