@@ -23,7 +23,6 @@ class Facebook extends AbstractOAuth2Client {
     public function getToken(Request $request) {
 
         if (isset($this->session->token)) {
-
             return true;
         } elseif (strlen($this->session->state) > 0 AND $this->session->state == $request->getQuery('state') AND strlen($request->getQuery('code')) > 5) {
 
@@ -43,15 +42,13 @@ class Facebook extends AbstractOAuth2Client {
             $retVal = $client->send()->getBody();
 
             parse_str($retVal, $token);
-
-             if (is_array($token)):
+            if (is_array($token)):
                 $keys = array_keys($token);
                 $tmp = array_shift($keys);
                 $token = json_decode($tmp);
             endif;
             if (is_object($token) AND isset($token->access_token) AND $token->expires_in > 0) {
-
-                $this->session->token = $token;
+                $this->setToken($token);
                 return true;
             } else {
 
@@ -83,6 +80,12 @@ class Facebook extends AbstractOAuth2Client {
 
             return false;
         }
+    }
+
+    public function setToken($token) {
+        $token = (object) $token;
+        $this->session->token = $token;
+        $this->session->info = null;
     }
 
     public function getInfo() {
